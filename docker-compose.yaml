@@ -10,6 +10,7 @@ services:
   #     - "3000:3000"
   #   depends_on:
   #     - db
+  #     - redis
   #   env_file:
   #     - .env
 
@@ -21,3 +22,8 @@ services:
       POSTGRES_DB: ${DB_NAME}
       POSTGRES_USER: ${DB_USER}
       POSTGRES_PASSWORD: ${DB_PASSWORD}
+
+  redis:
+    image: redis:alpine
+    ports:
+      - "6379:6379"

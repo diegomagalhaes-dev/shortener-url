@@ -10,7 +10,7 @@ interface IRequestDTO {
 @injectable()
 export default class ShowProfileService {
   constructor(
-    @inject('UsersRepository')
+    @inject('UserRepository')
     private usersRepository: IUsersRepository,
   ) {}
 
