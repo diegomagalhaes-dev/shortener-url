@@ -25,14 +25,25 @@ class UrlsRepository implements IUrlRepository {
     return url
   }
 
+  public async findOneFromUser(
+    id: string,
+    userId: string,
+  ): Promise<Url | null> {
+    const url = await this.ormRepository.findOne({
+      where: { id, user_id: userId },
+    })
+
+    return url
+  }
+
   public async findAllFromUser(userId: string): Promise<Url[]> {
     const urls = await this.ormRepository.find({ where: { user_id: userId } })
 
     return urls
   }
 
-  public async delete(id: string): Promise<void> {
-    await this.ormRepository.softDelete(id)
+  public async delete(id: string, userId: string): Promise<void> {
+    await this.ormRepository.softDelete({ id, user_id: userId })
   }
 
   public async save(user: Url): Promise<Url> {

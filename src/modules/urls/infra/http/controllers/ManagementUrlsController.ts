@@ -1,8 +1,8 @@
 import { Response, Request } from 'express'
 import { container } from 'tsyringe'
 import ListUserUrlsService from '../../../services/ListUserUrlsService'
-import RecoverShortenedUrlService from '../../../services/RecoverShortenedUrlSerivce'
 import DisableUserUrlService from '../../../services/DisableUserUrlService'
+import FindShortenedUrlService from '../../../services/FindShortenedUrlService'
 
 export default class ManagementUrlsController {
   public async show(request: Request, response: Response): Promise<Response> {
@@ -18,12 +18,14 @@ export default class ManagementUrlsController {
   }
 
   public async find(request: Request, response: Response): Promise<Response> {
+    const user_id = request.user.id
     const shorted_url_id = request.query.shorted_url_id as string
 
-    const recoverUrlService = container.resolve(RecoverShortenedUrlService)
+    const findUrl = container.resolve(FindShortenedUrlService)
 
-    const url = await recoverUrlService.execute({
+    const url = await findUrl.execute({
       shorted_url_id,
+      user_id,
     })
 
     if (!url) return response.status(404).json({ message: 'Url not found' })
@@ -39,12 +41,14 @@ export default class ManagementUrlsController {
     request: Request,
     response: Response,
   ): Promise<Response> {
+    const user_id = request.user.id
     const shorted_url_id = request.query.shorted_url_id as string
 
     const disableUrl = container.resolve(DisableUserUrlService)
 
     await disableUrl.execute({
       shorted_url_id,
+      user_id,
     })
 
     return response.status(204).send()
