@@ -30,7 +30,7 @@ class RecoverShortenedUrlService {
       )
     }
 
-    return this.cacheProvider.recover<Url>(shorted_url_id)
+    return this.cacheProvider.recover<Partial<Url>>(shorted_url_id)
   }
 }
 

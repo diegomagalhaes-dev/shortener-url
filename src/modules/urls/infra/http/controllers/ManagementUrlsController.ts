@@ -3,7 +3,7 @@ import { container } from 'tsyringe'
 
 import ListUserUrlsService from '@modules/urls/services/ListUserUrlsService'
 import DisableUserUrlService from '@modules/urls/services/DisableUserUrlService'
-import FindUrlService from '@modules/urls/services/FindUrlService'
+import RecoverShortenedUrlService from '@modules/urls/services/RecoverShortenedUrlSerivce'
 
 export default class ManagementUrlsController {
   public async show(request: Request, response: Response): Promise<Response> {
@@ -21,9 +21,9 @@ export default class ManagementUrlsController {
   public async find(request: Request, response: Response): Promise<Response> {
     const shorted_url_id = request.query.shorted_url_id as string
 
-    const findUrlsService = container.resolve(FindUrlService)
+    const recoverUrlService = container.resolve(RecoverShortenedUrlService)
 
-    const url = await findUrlsService.execute({
+    const url = await recoverUrlService.execute({
       shorted_url_id,
     })
 

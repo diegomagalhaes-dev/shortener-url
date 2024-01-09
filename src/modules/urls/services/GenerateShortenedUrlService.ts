@@ -26,7 +26,9 @@ class GenerateShortenedUrlService {
   }: Request): Promise<Url | string> {
     const shorted_url_id = nanoid(6)
 
-    const shortened_url = `${process.env.APP_URL}/${shorted_url_id}`
+    const shortened_url = `${
+      process.env.APP_URL ?? 'http://localhost:3333'
+    }/${shorted_url_id}`
 
     if (!user_id) {
       await this.cacheProvider.save(
@@ -35,6 +37,7 @@ class GenerateShortenedUrlService {
           original_url,
           shortened_url,
         },
+        // the cache will be deleted after 24 hours
         24 * 60 * 60,
       )
       return shortened_url

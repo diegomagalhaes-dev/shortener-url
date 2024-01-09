@@ -1,8 +1,8 @@
 import { Response, Request } from 'express'
 import { container } from 'tsyringe'
 
-import GenerateShortenedUrlService from '@modules/urls/services/CreateShortenedUrlService'
 import RecoverShortenedUrlService from '@modules/urls/services/RecoverShortenedUrlSerivce'
+import GenerateShortenedUrlService from '@modules/urls/services/GenerateShortenedUrlService'
 import Url from '../../typeorm/entities/Url'
 
 export default class ShortenerUrlsController {
