@@ -1,8 +1,8 @@
 import { Request, Response, NextFunction } from 'express'
-import { authConfig } from '@config/auth'
 
-import AppError from '@shared/errors/AppError'
 import { verify } from 'jsonwebtoken'
+import { authConfig } from '../../../../../config/auth'
+import AppError from '../../../../../shared/errors/AppError'
 
 interface JwtPayload {
   iat: number

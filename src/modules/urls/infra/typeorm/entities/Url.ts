@@ -8,7 +8,6 @@ import {
   ManyToOne,
   PrimaryColumn,
 } from 'typeorm'
-
 import User from '../../../../users/infra/typeorm/entities/User'
 
 @Entity('url')

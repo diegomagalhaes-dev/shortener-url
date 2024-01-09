@@ -1,7 +1,7 @@
 import { Request, Response, NextFunction } from 'express'
-import { authConfig } from '@config/auth'
 
 import { verify } from 'jsonwebtoken'
+import { authConfig } from '../../../../../config/auth'
 
 interface JwtPayload {
   iat: number

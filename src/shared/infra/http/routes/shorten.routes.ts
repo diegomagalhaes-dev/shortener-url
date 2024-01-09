@@ -1,5 +1,5 @@
-import shortenerUrlsRouter from '@modules/urls/infra/http/routes/shortener.routes'
 import { Router } from 'express'
+import shortenerUrlsRouter from '../../../../modules/urls/infra/http/routes/shortener.routes'
 
 const shortenRoutes = Router()
 

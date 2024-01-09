@@ -4,12 +4,14 @@ import cors from 'cors'
 
 import 'reflect-metadata'
 
-import AppError from '@shared/errors/AppError'
-import { AppDataSource } from '@shared/infra/typeorm'
-
-import '@shared/container'
+import AppError from '../../errors/AppError'
 import shortenRoutes from './routes/shorten.routes'
 import managementRoutes from './routes/management.routes'
+import { AppDataSource } from '../typeorm'
+
+import '../../container'
+
+const port = process.env.PORT || 3333
 
 AppDataSource.initialize().then(() => {
   const app = express()
@@ -35,7 +37,7 @@ AppDataSource.initialize().then(() => {
     },
   )
 
-  app.listen(3333, () => {
-    console.log('Server started on port 3333! 🔥')
+  app.listen(Number(port), '0.0.0.0', () => {
+    console.log(`Server is running on http://0.0.0.0:${port}`)
   })
 })

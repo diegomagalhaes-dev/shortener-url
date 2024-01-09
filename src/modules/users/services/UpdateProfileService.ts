@@ -1,5 +1,5 @@
-import AppError from '@shared/errors/AppError'
 import { inject, injectable } from 'tsyringe'
+import AppError from '../../../shared/errors/AppError'
 import User from '../infra/typeorm/entities/User'
 import IHashProvider from '../providers/HashProvider/Models/IHashProvider'
 import IUsersRepository from '../repositories/IUsersRepository'

@@ -1,6 +1,6 @@
 import { Router } from 'express'
 
-import ensureAuthenticated from '@modules/users/infra/http/middlewares/ensureAuthenticated'
+import ensureAuthenticated from '../../../../users/infra/http/middlewares/ensureAuthenticated'
 import ManagementUrlsController from '../controllers/ManagementUrlsController'
 
 const managementUrlsRouter = Router()

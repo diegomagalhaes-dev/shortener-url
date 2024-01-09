@@ -1,5 +1,5 @@
-import FakeCacheProvider from '@shared/container/providers/CacheProvider/fakes/FakeCacheProviders'
 import { nanoid } from 'nanoid'
+import FakeCacheProvider from '../../../shared/container/providers/CacheProvider/fakes/FakeCacheProviders'
 import FakeUrlsRepository from '../repositories/fakes/FakeUrlsRepository'
 import GenerateShortenedUrlService from './GenerateShortenedUrlService'
 import Url from '../infra/typeorm/entities/Url'

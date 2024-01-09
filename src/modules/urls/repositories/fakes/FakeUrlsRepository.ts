@@ -1,10 +1,6 @@
-import IUsersRepository from '@modules/users/repositories/IUsersRepository'
-import ICreateUserDTO from '@modules/users/dtos/ICreateUserDTO'
-import { uuid } from 'uuidv4'
-import Url from '@modules/urls/infra/typeorm/entities/Url'
-import User from '@modules/users/infra/typeorm/entities/User'
-import ICreateUrlDTO from '@modules/urls/dtos/ICreateUrlDTO'
 import { nanoid } from 'nanoid'
+import Url from '../../infra/typeorm/entities/Url'
+import ICreateUrlDTO from '../../dtos/ICreateUrlDTO'
 import IUrlRepository from '../IUrlsRepository'
 
 class FakeUrlsRepository implements IUrlRepository {

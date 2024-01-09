@@ -1,9 +1,8 @@
 import { Response, Request } from 'express'
 import { container } from 'tsyringe'
-
-import ListUserUrlsService from '@modules/urls/services/ListUserUrlsService'
-import DisableUserUrlService from '@modules/urls/services/DisableUserUrlService'
-import RecoverShortenedUrlService from '@modules/urls/services/RecoverShortenedUrlSerivce'
+import ListUserUrlsService from '../../../services/ListUserUrlsService'
+import RecoverShortenedUrlService from '../../../services/RecoverShortenedUrlSerivce'
+import DisableUserUrlService from '../../../services/DisableUserUrlService'
 
 export default class ManagementUrlsController {
   public async show(request: Request, response: Response): Promise<Response> {

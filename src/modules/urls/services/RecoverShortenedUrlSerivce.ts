@@ -1,6 +1,6 @@
 import { injectable, inject } from 'tsyringe'
 
-import ICacheProvider from '@shared/container/providers/CacheProvider/models/ICacheProvider'
+import ICacheProvider from '../../../shared/container/providers/CacheProvider/models/ICacheProvider'
 import IUrlRepository from '../repositories/IUrlsRepository'
 import Url from '../infra/typeorm/entities/Url'
 

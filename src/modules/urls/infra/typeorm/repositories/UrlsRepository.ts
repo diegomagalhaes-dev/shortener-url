@@ -1,7 +1,7 @@
 import { Repository } from 'typeorm'
-import { AppDataSource } from '@shared/infra/typeorm'
-import IUrlRepository from '@modules/urls/repositories/IUrlsRepository'
-import ICreateUrlDTO from '@modules/urls/dtos/ICreateUrlDTO'
+import { AppDataSource } from '../../../../../shared/infra/typeorm'
+import IUrlRepository from '../../../repositories/IUrlsRepository'
+import ICreateUrlDTO from '../../../dtos/ICreateUrlDTO'
 import Url from '../entities/Url'
 
 class UrlsRepository implements IUrlRepository {

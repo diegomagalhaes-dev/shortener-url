@@ -1,4 +1,4 @@
-import FakeCacheProvider from '@shared/container/providers/CacheProvider/fakes/FakeCacheProviders'
+import FakeCacheProvider from '../../../shared/container/providers/CacheProvider/fakes/FakeCacheProviders'
 import FakeUrlsRepository from '../repositories/fakes/FakeUrlsRepository'
 import GenerateShortenedUrlService from './GenerateShortenedUrlService'
 
