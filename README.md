@@ -47,7 +47,7 @@ npm run test
 To run the project with Docker, you can use Docker Compose. Simply run the following command:
 
 ```bash
-docker-compose up
+docker-compose up --build
 ```
 
 This will start the URL shortener service and your dependencies. You can then access the service by navigating to http://localhost:3333 in your web browser.
