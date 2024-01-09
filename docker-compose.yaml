@@ -1,29 +1,40 @@
 version: '3.9'
 
 services:
-  # Uncomment the following lines if you want to build the app service
-  # app:
-  #   build:
-  #     context: .
-  #     dockerfile: Dockerfile
-  #   ports:
-  #     - "3000:3000"
-  #   depends_on:
-  #     - db
-  #     - redis
-  #   env_file:
-  #     - .env
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "3333:3000"
+    environment:
+      PORT: 3000
+      DB_NAME: shortener_db
+      DB_HOST: db
+      DB_USER: admin
+      DB_PASSWORD: changeme
+      APP_URL: http://localhost:3333
+      REDIS_HOST: redis
+      REDIS_PORT: 6379
+    depends_on:
+      - db
+      - redis
 
   db:
-    image: postgres:latest
+    image: postgres
     ports:
       - "5432:5432"
     environment:
-      POSTGRES_DB: ${DB_NAME}
-      POSTGRES_USER: ${DB_USER}
-      POSTGRES_PASSWORD: ${DB_PASSWORD}
+      POSTGRES_DB: shortener_db
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: changeme
+    volumes:
+      - db_data:/var/lib/postgresql/data
 
   redis:
-    image: redis:alpine
+    image: redis
     ports:
       - "6379:6379"
+
+volumes:
+  db_data:

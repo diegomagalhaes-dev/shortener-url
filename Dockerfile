@@ -1,19 +1,22 @@
-FROM node:latest AS base
-WORKDIR /usr/src/app
+FROM node:latest AS build
+WORKDIR /build
 
-FROM base AS dependencies
 COPY package*.json ./
-RUN npm install
+RUN npm i --ignore-scripts
 
-FROM dependencies AS build
-COPY . .
+COPY . ./
+
 RUN npm run build
 
-FROM node:alpine:latest AS release
-WORKDIR /usr/src/app
-COPY --from=build /usr/src/app/dist ./dist
-COPY package*.json ./
+FROM node:alpine AS release
+
+WORKDIR /usr/app
+
+COPY --from=build /build/package*.json ./
+COPY --from=build /build/dist dist
+
 RUN npm install --only=production
+RUN npm run migration:run:prod
 
 EXPOSE 3000
 CMD ["npm", "start"]

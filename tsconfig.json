@@ -1,18 +1,12 @@
 {
   "compilerOptions": {
-    "target": "es6",
+    "target": "ES2018",
     "module": "commonjs",
     "outDir": "./dist",
-    "rootDir": "./src",
+    "baseUrl": "./",
     "strict": true,
     "strictPropertyInitialization": false,
-    "baseUrl": "./src",
     "allowJs": true,
-    "paths": {
-      "@modules/*": ["modules/*"],
-      "@config/*": ["config/*"],
-      "@shared/*": ["shared/*"]
-    },
     "esModuleInterop": true,
     "experimentalDecorators": true,
     "emitDecoratorMetadata": true,
