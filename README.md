@@ -30,10 +30,10 @@ git clone https://github.com/diegomagalhaes-dev/shortener-url.git
 cd shortener-url
 ```
 
-2. Install the dependencies:
+3. Install the dependencies:
 
 ```bash
-cd shortener-url
+npm install
 ```
 
 ### Running the tests
@@ -87,3 +87,14 @@ This project provides the following API endpoints:
 - `GET /url`: Find a URL for the authenticated user.
   - Query parameter should include `shorted_url_id`.
   - Requires authentication.
+
+
+### Architecture and scale
+
+[Here](https://excalidraw.com/#json=95ISVg5JXiDY7EehkVIKE,aarpI9Bb5Xzxuy-8egDcAw) you can find the architectural drawing along with a scale proposal for the system.
+
+<details>
+ <summary>Achitecture Solution</summary>
+ 
+![System Design](/resources/shortener-url-design1x.png)
+</details>
