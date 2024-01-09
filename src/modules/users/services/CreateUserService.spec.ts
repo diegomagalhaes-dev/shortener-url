@@ -7,7 +7,7 @@ let fakeUsersRepository: FakeUsersRepository
 let fakeHashProvider: FakeHashProvider
 let createUser: CreateUserService
 
-describe('CreateAppointment', () => {
+describe('CreateUser', () => {
   beforeEach(() => {
     fakeUsersRepository = new FakeUsersRepository()
     fakeHashProvider = new FakeHashProvider()
@@ -25,7 +25,7 @@ describe('CreateAppointment', () => {
     expect(user).toHaveProperty('id')
   })
 
-  it('should not be able to create a new user with same email from another', async () => {
+  fit('should not be able to create a new user with same email from another', async () => {
     const email = 'userusr@gmail.com'
     await createUser.execute({
       name: 'John Doe',
@@ -33,7 +33,6 @@ describe('CreateAppointment', () => {
       password: 'changeme',
     })
 
-    // Espero que Rejeite (Reject) e seja uma instâncioa de AppError
     await expect(
       createUser.execute({
         name: 'Usuario Qualquer',
